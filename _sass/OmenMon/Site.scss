@@ -66,6 +66,17 @@ a {
   }
 }
 
+.btn.sel {
+  background-color: transparent;
+  }
+
+.btn#dl {
+  color: white;
+  border-color: white;
+  font-weight:bold;
+  border-width: 2px;
+  }
+
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
