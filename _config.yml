@@ -3,7 +3,7 @@
 
 title: OmenMon
 description: Omen Hardware Monitoring & Control
-
+    
 defaults:
   -
     scope:
@@ -31,3 +31,6 @@ defaults:
           link: https://github.com/OmenMon/
           text: OmenMon
       footer-disclaimer: © 2023
+
+sass:
+    sass_dir: ./_sass
