@@ -1,34 +1,45 @@
+{%- comment -%}
+
+# OmenMon Web Theme
+# Page Template
+
+# Based on the Cayman theme by Ben Balter and Parker Moore, which was
+# licensed under the terms of Creative Commons Zero 1.0 Universal license
+# https://github.com/pages-themes/cayman
+
+{%- endcomment -%}
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="UTF-8">
-{% seo %}
+    {% seo %}
     <meta name="theme-color" content="#0c9d7a">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ '/favicon.png' | relative_url }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
     <a id="skip" href="#content">Content</a>
-    <header class="header" role="banner">
-      {% if show_title %}<h1 class="title">{{ page.title | default: site.title }}</h1>{% endif %}
-      {% if show_description %}<h2 class="description">{{ page.description | default: site.description }}</h2>{% endif %}
-      {% if show_header_link1 %}<a href="{{ site.omenmon.header_link1_url }}" class="btn">{{ site.omenmon_header_link1_text }}</a>{% endif %}
-      {% if show_header_link2 %}<a href="{{ site.omenmon.header_link2_url }}" class="btn">{{ site.omenmon_header_link2_text }}</a>{% endif %}
-      {% if show_header_link3 %}<a href="{{ site.omenmon.header_link3_url }}" class="btn">{{ site.omenmon_header_link3_text }}</a>{% endif %}
-    </header>
+    {% unless page.suppress_header %}<header class="header" role="banner">
+      {% unless page.suppress_logo %}<img class="logo" src="/assets/images/logo.png" />{% endunless %}
+      {% unless page.suppress_title %}<h1 class="title">{{ page.title | default: site.title }}</h1>{% endunless %}
+      {% unless page.suppress_description %}<h2 class="description">{{ page.description | default: site.description }}</h2>{% endunless %}
+      {% unless page.suppress_menu %}{% for item in page.menu -%}
+      {% if item.link %}<a class="btn" href="{{ item.link }}">{{ item.text }}</a>{% endif %}
+      {%- endfor %}{% endunless %}
+    </header>{%endunless %}
     <main id="content" class="content" role="main">
       {{ content }}
       <footer class="footer">
-        {% if site.omenmon.footer_link_text %}
-          <span class="footer-link">{{ site.omenmon.footer_link_text_before }}
-            <a href="{{ site.omenmon.footer_link_url }}">{{ site.omenmon.footer_link_text }}</a>
-          {{ site.omenmon.footer_link_text_after }}</span>
-        {% endif %}
-        {% if site.omenmon.footer_disclaimer %}
-        <span class="footer-disclaimer">{{ site.omenmon.footer_disclaimer }}</span>
-        {% endif %}
+        <span class="footer-link">
+          {% for item in page.footer-link -%}
+          {% if item.link %}<a href="{{ item.link }}">{% endif %}{{ item.text }}{% if item.link %}</a>{% endif %}
+          {% endfor %}
+        </span>
+        {%- if page.footer-disclaimer %}
+        <span class="footer-disclaimer">{{ page.footer-disclaimer }}</span>
+        {%- endif %}
       </footer>
     </main>
   </body>

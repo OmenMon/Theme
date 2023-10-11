@@ -1,23 +1,33 @@
+# OmenMon Web Page
+# Theme Configuration
+
 title: OmenMon
 description: Omen Hardware Monitoring & Control
-show_title: true
-show_description: true
-show_header_link1: true
-show_header_link2: true
-show_header_link3: true
-show_downloads: false
-google_analytics: false
-theme: jekyll-theme-omenmon
 
-omenmon:
-  header_link1_text: Button 1
-  header_link1_url: https://1/
-  header_link2_text: Button 2
-  header_link2_url: https://2/
-  header_link3_text: Button 3
-  header_link3_url: https://3/
-  footer_link_text: OmenMon
-  footer_link_text_after: After
-  footer_link_text_before: Before
-  footer_link_url: https://github.com/OmenMon/
-  footer_disclaimer: © 2023
+defaults:
+  -
+    scope:
+      path: "" # Any File
+      type: "pages"
+    values:
+      layout: "default"
+      suppress_header: false
+      suppress_logo: false
+      suppress_title: false
+      suppress_description: false
+      suppress_menu: false
+      menu:
+        -
+          link: https://1/
+          text: Button 1
+        -
+          link: https://2/
+          text: Button 2
+        -
+          link: https://3/
+          text: Button 3
+      footer-link:
+        -
+          link: https://github.com/OmenMon/
+          text: OmenMon
+      footer-disclaimer: © 2023
