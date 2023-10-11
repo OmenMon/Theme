@@ -31,6 +31,3 @@ defaults:
           link: https://github.com/OmenMon/
           text: OmenMon
       footer-disclaimer: © 2023
-
-sass:
-    sass_dir: ./_sass
