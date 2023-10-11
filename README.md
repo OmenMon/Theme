@@ -1,6 +1,3 @@
----
----
-
 # OmenMon Web Page Theme
 
 ## Acknowledgements
