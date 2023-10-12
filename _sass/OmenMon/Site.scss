@@ -77,10 +77,6 @@ a {
   border-width: 2px;
   }
 
-.btn:first-child {
-  clear: left;
-  }
-
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
@@ -150,6 +146,10 @@ a {
 
   img {
     max-width: 50%;
+  }
+
+  menu {
+    clear: both;
   }
 
 }
