@@ -25,7 +25,7 @@
       {% unless page.suppress_logo %}<img class="logo" src="/assets/images/logo.png" />{% endunless %}
       {% unless page.suppress_title %}<h1 class="title">{{ page.title | default: site.title }}</h1>{% endunless %}
       {% unless page.suppress_description %}<h2 class="description">{{ page.description | default: site.description }}</h2>{% endunless %}
-      {% unless page.suppress_menu %}<div class="menu">{% assign current_link = page.url | replace: '.html', '/' %}{% for item in page.menu -%}
+      {% unless page.suppress_menu %}<div class="menu">{% assign current_link = page.url | replace: '.html', '' %}{% for item in page.menu -%}
       {% if item.link %}<a class="btn{% if current_link == item.link %} sel{% endif %}" href="{{ item.link }}"{% if item.id %} id="{{ item.id }}"{% endif %}>{{ item.text }}{% if item.id == 'dl' %} &#x2b73;{% endif %}</a>{% endif %}
       {%- endfor %}</div>{% endunless %}
     </header>{%endunless %}
